@@ -9,8 +9,11 @@ export default function RootLayout({ children }) {
         style={{
           margin: 0,
           padding: 0,
-          background: "#060606",
-          overflow: "hidden"
+          background: "#050505",
+          overflowY: "auto",
+          overflowX: "hidden",
+          scrollbarWidth: "thin",
+          scrollbarColor: "#777 transparent"
         }}
       >
         {children}
