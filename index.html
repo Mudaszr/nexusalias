@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nexus Alias — Access Portal</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+
+/* =====================
+   THEME
+===================== */
+
+:root {
+  --bg: #060606;
+  --gold: #c9a24d;
+  --gold-soft: #e0c176;
+  --text: #ededed;
+  --muted: #777;
+}
+
+/* =====================
+   RESET
+===================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =====================
+   BASE
+===================== */
+
+body {
+  background: #060606;
+  color: var(--text);
+  font-family: Inter, sans-serif;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Matte Grain */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    url("https://www.transparenttextures.com/patterns/black-paper.png");
+  opacity: 0.25;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* =====================
+   CENTER
+===================== */
+
+.screen {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.box {
+  max-width: 800px;
+  padding: 40px;
+  animation: fadeIn 2.5s ease;
+}
+
+/* =====================
+   LOGO
+===================== */
+
+.logo {
+  font-family: "Playfair Display", serif;
+  font-size: 64px;
+  letter-spacing: 6px;
+  margin-bottom: 15px;
+}
+
+.logo span {
+  color: var(--gold);
+}
+
+/* LINE */
+
+.line {
+  width: 90px;
+  height: 2px;
+  background: var(--gold);
+  margin: 20px auto 30px;
+}
+
+/* =====================
+   TEXT
+===================== */
+
+.tagline {
+  font-size: 15px;
+  letter-spacing: 2px;
+  color: var(--muted);
+  margin-bottom: 50px;
+}
+
+/* =====================
+   CONNECT BUTTON
+===================== */
+
+.connect-btn {
+  display: inline-block;
+  padding: 16px 42px;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.connect-btn:hover {
+  background: var(--gold);
+  color: #060606;
+  box-shadow:
+    0 0 20px rgba(201,162,77,0.25),
+    0 0 40px rgba(201,162,77,0.15);
+  transform: translateY(-2px);
+}
+
+/* =====================
+   ANIM
+===================== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =====================
+   MOBILE
+===================== */
+
+@media(max-width:768px){
+
+  .logo {
+    font-size: 42px;
+  }
+
+  .connect-btn {
+    padding: 14px 32px;
+    font-size: 11px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="screen">
+
+  <div class="box">
+
+    <div class="logo">
+      NEXUS <span>ALIAS</span>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="tagline">
+      Silent · Secure · Supreme
+    </div>
+
+    <a href="/login" class="connect-btn">
+      ENTER THE NEXUS
+    </a>
+
+  </div>
+
+</div>
+
+</body>
+</html>
