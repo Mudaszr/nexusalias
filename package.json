@@ -12,5 +12,10 @@
     "react": "latest",
     "react-dom": "latest",
     "react-simple-maps": "^3.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5",
+    "@types/react": "^19",
+    "@types/node": "^22"
   }
 }
