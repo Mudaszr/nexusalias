@@ -33,14 +33,42 @@ export default function Dashboard() {
 
   return (
     <main
+      className="dashboard"
       style={{
         background:"#050505",
         color:"#fff",
         minHeight:"100vh",
         fontFamily:"sans-serif",
-        padding:"30px"
+        padding:"30px",
+        overflowX:"hidden"
       }}
     >
+
+      {/* SCROLLBAR */}
+
+      <style>{`
+
+        body {
+          margin: 0;
+          background: #050505;
+          overflow-y: auto;
+          overflow-x: hidden;
+        }
+
+        .dashboard::-webkit-scrollbar {
+          width: 6px;
+        }
+
+        .dashboard::-webkit-scrollbar-track {
+          background: transparent;
+        }
+
+        .dashboard::-webkit-scrollbar-thumb {
+          background: rgba(255,255,255,0.08);
+          border-radius: 20px;
+        }
+
+      `}</style>
 
       {/* NAVBAR */}
 
@@ -58,7 +86,8 @@ export default function Dashboard() {
         <h1
           style={{
             letterSpacing:"4px",
-            fontWeight:"300"
+            fontWeight:"300",
+            fontSize:"28px"
           }}
         >
           NEXUS <span style={{color:"#c9a24d"}}>ALIAS</span>
@@ -68,7 +97,7 @@ export default function Dashboard() {
           style={{
             color:"#777",
             letterSpacing:"2px",
-            fontSize:"13px"
+            fontSize:"12px"
           }}
         >
           GLOBAL ECONOMIC INTELLIGENCE
@@ -82,7 +111,8 @@ export default function Dashboard() {
         style={{
           display:"grid",
           gridTemplateColumns:"2fr 1fr",
-          gap:"25px"
+          gap:"25px",
+          alignItems:"start"
         }}
       >
 
@@ -94,9 +124,10 @@ export default function Dashboard() {
 
           <div
             style={{
-              background:"#0b0b0b",
-              border:"1px solid #151515",
+              background:"#0a0a0a",
+              border:"1px solid rgba(255,255,255,0.05)",
               padding:"25px",
+              borderRadius:"14px",
               marginBottom:"25px"
             }}
           >
@@ -113,8 +144,10 @@ export default function Dashboard() {
 
             <div
               style={{
-                height:"500px",
-                background:"#070707"
+                height:"520px",
+                background:"#000",
+                borderRadius:"12px",
+                overflow:"hidden"
               }}
             >
 
@@ -140,21 +173,23 @@ export default function Dashboard() {
 
                         style={{
                           default: {
-                            fill:"#111",
-                            outline:"none",
-                            stroke:"#333",
-                            strokeWidth:0.5
+                            fill: "#050505",
+                            stroke: "rgba(255,255,255,0.18)",
+                            strokeWidth: 0.6,
+                            outline: "none"
                           },
 
                           hover: {
-                            fill:"#c9a24d",
-                            outline:"none",
-                            cursor:"pointer"
+                            fill: "#161616",
+                            stroke: "#ffffff",
+                            strokeWidth: 0.8,
+                            outline: "none",
+                            cursor: "pointer"
                           },
 
                           pressed: {
-                            fill:"#c9a24d",
-                            outline:"none"
+                            fill: "#202020",
+                            outline: "none"
                           }
                         }}
 
@@ -176,9 +211,10 @@ export default function Dashboard() {
 
           <div
             style={{
-              background:"#0b0b0b",
-              border:"1px solid #151515",
-              padding:"25px"
+              background:"#0a0a0a",
+              border:"1px solid rgba(255,255,255,0.05)",
+              padding:"25px",
+              borderRadius:"14px"
             }}
           >
 
@@ -261,10 +297,13 @@ export default function Dashboard() {
 
           <div
             style={{
-              background:"#0b0b0b",
-              border:"1px solid #151515",
+              background:"#0a0a0a",
+              border:"1px solid rgba(255,255,255,0.05)",
               padding:"25px",
-              marginBottom:"25px"
+              borderRadius:"14px",
+              marginBottom:"25px",
+              position:"sticky",
+              top:"20px"
             }}
           >
 
@@ -289,12 +328,14 @@ export default function Dashboard() {
 
               <div style={{
                 height:"10px",
-                background:"#111"
+                background:"#111",
+                borderRadius:"20px"
               }}>
                 <div style={{
                   width:"61%",
                   height:"100%",
-                  background:"#c9a24d"
+                  background:"#c9a24d",
+                  borderRadius:"20px"
                 }} />
               </div>
 
@@ -311,12 +352,14 @@ export default function Dashboard() {
 
               <div style={{
                 height:"10px",
-                background:"#111"
+                background:"#111",
+                borderRadius:"20px"
               }}>
                 <div style={{
                   width:"38%",
                   height:"100%",
-                  background:"#ff4d4d"
+                  background:"#ff4d4d",
+                  borderRadius:"20px"
                 }} />
               </div>
 
@@ -333,81 +376,16 @@ export default function Dashboard() {
 
               <div style={{
                 height:"10px",
-                background:"#111"
+                background:"#111",
+                borderRadius:"20px"
               }}>
                 <div style={{
                   width:"74%",
                   height:"100%",
-                  background:"#00c853"
+                  background:"#00c853",
+                  borderRadius:"20px"
                 }} />
               </div>
-
-            </div>
-
-          </div>
-
-          {/* INTEL FEED */}
-
-          <div
-            style={{
-              background:"#0b0b0b",
-              border:"1px solid #151515",
-              padding:"25px"
-            }}
-          >
-
-            <h2
-              style={{
-                marginBottom:"25px",
-                fontWeight:"400",
-                letterSpacing:"2px"
-              }}
-            >
-              Intelligence Feed
-            </h2>
-
-            <div style={{marginBottom:"20px"}}>
-
-              <p style={{color:"#c9a24d"}}>
-                ENERGY
-              </p>
-
-              <p style={{
-                color:"#777",
-                marginTop:"8px"
-              }}>
-                Oil volatility rising amid geopolitical tensions.
-              </p>
-
-            </div>
-
-            <div style={{marginBottom:"20px"}}>
-
-              <p style={{color:"#c9a24d"}}>
-                AI INDUSTRY
-              </p>
-
-              <p style={{
-                color:"#777",
-                marginTop:"8px"
-              }}>
-                Semiconductor demand continues expanding globally.
-              </p>
-
-            </div>
-
-            <div>
-
-              <p style={{color:"#c9a24d"}}>
-                CURRENCY WATCH
-              </p>
-
-              <p style={{
-                color:"#777",
-                marginTop:"8px"
-              }}>
-                USD dominance remains strong during uncertainty.
-              </p>
 
             </div>
 
