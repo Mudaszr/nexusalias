@@ -7,15 +7,15 @@
     "start": "next start"
   },
   "dependencies": {
+    "next": "16.2.6",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
     "jose": "^5.2.4",
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest",
     "react-simple-maps": "^3.0.0"
   },
   "devDependencies": {
-    "typescript": "^5",
-    "@types/react": "^19",
-    "@types/node": "^22"
+    "typescript": "^5.0.0",
+    "@types/react": "^19.0.0",
+    "@types/node": "^22.0.0"
   }
 }
