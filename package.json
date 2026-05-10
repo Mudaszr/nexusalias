@@ -1,0 +1,16 @@
+{
+  "name": "nexusalias",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "jose": "^5.2.4",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-simple-maps": "^3.0.0"
+  }
+}
