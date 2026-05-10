@@ -128,7 +128,7 @@ export default function Dashboard() {
                 }}
               >
 
-                <Geographies geography="https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json">
+                <Geographies geography="/world.json">
 
                   {({ geographies }) =>
 
