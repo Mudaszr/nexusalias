@@ -1,3 +1,11 @@
+"use client"
+
+import {
+  ComposableMap,
+  Geographies,
+  Geography
+} from "react-simple-maps"
+
 export default function Dashboard() {
 
   const alerts = [
@@ -8,18 +16,18 @@ export default function Dashboard() {
     },
     {
       country: "China",
-      event: "Manufacturing slowdown pressures global supply chains",
+      event: "Manufacturing slowdown pressures supply chains",
       impact: "HIGH"
     },
     {
-      country: "Germany",
-      event: "Industrial output weakens amid energy concerns",
-      impact: "MEDIUM"
+      country: "India",
+      event: "Strong GDP growth boosts investment flows",
+      impact: "POSITIVE"
     },
     {
-      country: "India",
-      event: "Strong GDP growth attracts foreign investment",
-      impact: "POSITIVE"
+      country: "Germany",
+      event: "Industrial slowdown impacts EU outlook",
+      impact: "MEDIUM"
     }
   ]
 
@@ -30,7 +38,7 @@ export default function Dashboard() {
         color:"#fff",
         minHeight:"100vh",
         fontFamily:"sans-serif",
-        padding:"40px"
+        padding:"30px"
       }}
     >
 
@@ -41,7 +49,7 @@ export default function Dashboard() {
           display:"flex",
           justifyContent:"space-between",
           alignItems:"center",
-          marginBottom:"50px",
+          marginBottom:"30px",
           borderBottom:"1px solid #151515",
           paddingBottom:"20px"
         }}
@@ -50,7 +58,6 @@ export default function Dashboard() {
         <h1
           style={{
             letterSpacing:"4px",
-            fontSize:"30px",
             fontWeight:"300"
           }}
         >
@@ -61,7 +68,7 @@ export default function Dashboard() {
           style={{
             color:"#777",
             letterSpacing:"2px",
-            fontSize:"14px"
+            fontSize:"13px"
           }}
         >
           GLOBAL ECONOMIC INTELLIGENCE
@@ -69,7 +76,7 @@ export default function Dashboard() {
 
       </div>
 
-      {/* GRID */}
+      {/* MAIN GRID */}
 
       <div
         style={{
@@ -79,25 +86,24 @@ export default function Dashboard() {
         }}
       >
 
-        {/* LEFT */}
+        {/* LEFT SIDE */}
 
         <div>
 
-          {/* MAP */}
+          {/* WORLD MAP */}
 
           <div
             style={{
               background:"#0b0b0b",
               border:"1px solid #151515",
-              padding:"30px",
-              marginBottom:"25px",
-              height:"420px"
+              padding:"25px",
+              marginBottom:"25px"
             }}
           >
 
             <h2
               style={{
-                marginBottom:"25px",
+                marginBottom:"20px",
                 fontWeight:"400",
                 letterSpacing:"2px"
               }}
@@ -107,16 +113,61 @@ export default function Dashboard() {
 
             <div
               style={{
-                height:"320px",
-                border:"1px dashed #333",
-                display:"flex",
-                justifyContent:"center",
-                alignItems:"center",
-                color:"#666",
-                letterSpacing:"3px"
+                height:"500px",
+                background:"#070707"
               }}
             >
-              WORLD MAP ACTIVE
+
+              <ComposableMap
+                projectionConfig={{
+                  scale: 145
+                }}
+                style={{
+                  width:"100%",
+                  height:"100%"
+                }}
+              >
+
+                <Geographies geography="https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json">
+
+                  {({ geographies }) =>
+
+                    geographies.map((geo) => (
+
+                      <Geography
+                        key={geo.rsmKey}
+                        geography={geo}
+
+                        style={{
+                          default: {
+                            fill:"#111",
+                            outline:"none",
+                            stroke:"#333",
+                            strokeWidth:0.5
+                          },
+
+                          hover: {
+                            fill:"#c9a24d",
+                            outline:"none",
+                            cursor:"pointer"
+                          },
+
+                          pressed: {
+                            fill:"#c9a24d",
+                            outline:"none"
+                          }
+                        }}
+
+                      />
+
+                    ))
+
+                  }
+
+                </Geographies>
+
+              </ComposableMap>
+
             </div>
 
           </div>
@@ -127,7 +178,7 @@ export default function Dashboard() {
             style={{
               background:"#0b0b0b",
               border:"1px solid #151515",
-              padding:"30px"
+              padding:"25px"
             }}
           >
 
@@ -146,7 +197,7 @@ export default function Dashboard() {
               <div
                 key={index}
                 style={{
-                  padding:"20px",
+                  padding:"18px 0",
                   borderBottom:"1px solid #151515"
                 }}
               >
@@ -176,7 +227,7 @@ export default function Dashboard() {
                           : alert.impact === "POSITIVE"
                           ? "#00c853"
                           : "#ffaa00",
-                      fontSize:"13px",
+                      fontSize:"12px",
                       letterSpacing:"2px"
                     }}
                   >
@@ -187,7 +238,7 @@ export default function Dashboard() {
 
                 <p
                   style={{
-                    color:"#999",
+                    color:"#888",
                     lineHeight:"1.7"
                   }}
                 >
@@ -212,7 +263,7 @@ export default function Dashboard() {
             style={{
               background:"#0b0b0b",
               border:"1px solid #151515",
-              padding:"30px",
+              padding:"25px",
               marginBottom:"25px"
             }}
           >
@@ -224,81 +275,84 @@ export default function Dashboard() {
                 letterSpacing:"2px"
               }}
             >
-              Market Sentiment
+              System Status
             </h2>
 
             <div style={{marginBottom:"20px"}}>
-              <p style={{color:"#777", marginBottom:"8px"}}>
+
+              <p style={{
+                color:"#777",
+                marginBottom:"8px"
+              }}>
                 Global Stability
               </p>
 
-              <div
-                style={{
-                  height:"10px",
-                  background:"#111"
-                }}
-              >
-                <div
-                  style={{
-                    width:"58%",
-                    height:"100%",
-                    background:"#c9a24d"
-                  }}
-                />
+              <div style={{
+                height:"10px",
+                background:"#111"
+              }}>
+                <div style={{
+                  width:"61%",
+                  height:"100%",
+                  background:"#c9a24d"
+                }} />
               </div>
+
             </div>
 
             <div style={{marginBottom:"20px"}}>
-              <p style={{color:"#777", marginBottom:"8px"}}>
+
+              <p style={{
+                color:"#777",
+                marginBottom:"8px"
+              }}>
                 Recession Risk
               </p>
 
-              <div
-                style={{
-                  height:"10px",
-                  background:"#111"
-                }}
-              >
-                <div
-                  style={{
-                    width:"42%",
-                    height:"100%",
-                    background:"#ff4d4d"
-                  }}
-                />
+              <div style={{
+                height:"10px",
+                background:"#111"
+              }}>
+                <div style={{
+                  width:"38%",
+                  height:"100%",
+                  background:"#ff4d4d"
+                }} />
               </div>
+
             </div>
 
             <div>
-              <p style={{color:"#777", marginBottom:"8px"}}>
+
+              <p style={{
+                color:"#777",
+                marginBottom:"8px"
+              }}>
                 Investor Confidence
               </p>
 
-              <div
-                style={{
-                  height:"10px",
-                  background:"#111"
-                }}
-              >
-                <div
-                  style={{
-                    width:"67%",
-                    height:"100%",
-                    background:"#00c853"
-                  }}
-                />
+              <div style={{
+                height:"10px",
+                background:"#111"
+              }}>
+                <div style={{
+                  width:"74%",
+                  height:"100%",
+                  background:"#00c853"
+                }} />
               </div>
+
             </div>
 
           </div>
 
-          {/* INTEL */}
+          {/* INTEL FEED */}
 
           <div
             style={{
               background:"#0b0b0b",
               border:"1px solid #151515",
-              padding:"30px"
+              padding:"25px"
             }}
           >
 
@@ -313,33 +367,48 @@ export default function Dashboard() {
             </h2>
 
             <div style={{marginBottom:"20px"}}>
+
               <p style={{color:"#c9a24d"}}>
-                OIL MARKETS
+                ENERGY
               </p>
 
-              <p style={{color:"#777", marginTop:"8px"}}>
-                Middle East tensions driving volatility.
+              <p style={{
+                color:"#777",
+                marginTop:"8px"
+              }}>
+                Oil volatility rising amid geopolitical tensions.
               </p>
+
             </div>
 
             <div style={{marginBottom:"20px"}}>
+
+              <p style={{color:"#c9a24d"}}>
+                AI INDUSTRY
+              </p>
+
+              <p style={{
+                color:"#777",
+                marginTop:"8px"
+              }}>
+                Semiconductor demand continues expanding globally.
+              </p>
+
+            </div>
+
+            <div>
+
               <p style={{color:"#c9a24d"}}>
                 CURRENCY WATCH
               </p>
 
-              <p style={{color:"#777", marginTop:"8px"}}>
-                USD remains dominant amid global uncertainty.
-              </p>
-            </div>
-
-            <div>
-              <p style={{color:"#c9a24d"}}>
-                AI SECTOR
+              <p style={{
+                color:"#777",
+                marginTop:"8px"
+              }}>
+                USD dominance remains strong during uncertainty.
               </p>
 
-              <p style={{color:"#777", marginTop:"8px"}}>
-                Semiconductor demand continues accelerating.
-              </p>
             </div>
 
           </div>
